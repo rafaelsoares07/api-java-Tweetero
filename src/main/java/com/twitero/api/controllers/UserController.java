@@ -16,8 +16,17 @@ import com.twitero.api.services.UserService;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/api") //pode ter um caminho de rota ou não!
+@RequestMapping("/api/auth") //pode ter um caminho de rota ou não!
 
 public class UserController {
+
+    @Autowired 
+    UserService service;
+
+    @PostMapping("/sign-up")
+    public User createUser(@RequestBody UserDTO data){
+        return service.createNewUser(data);
+    }
+
 
 }
