@@ -14,6 +14,12 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 public class Twitter {
+
+    public Twitter (TwitterDTO data, String avatar){
+        this.username = data.username();
+        this.tweet = data.tweet();
+        this.avatar = avatar;
+    }
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
