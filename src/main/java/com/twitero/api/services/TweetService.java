@@ -3,6 +3,8 @@ package com.twitero.api.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.twitero.api.dto.TwitterDTO;
@@ -21,8 +23,8 @@ public class TweetService {
     @Autowired 
     UserRepository UserRepository;
 
-    public List<Tweet> getTweets(){
-        return Tweetrepository.findAll();
+    public Page<Tweet> getTweets(Pageable pageable){
+        return Tweetrepository.findAllByOrderByIdDesc(pageable);
     }
 
     public Tweet createTweet(TwitterDTO data) {
