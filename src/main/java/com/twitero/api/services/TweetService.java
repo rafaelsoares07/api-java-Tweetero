@@ -34,6 +34,6 @@ public class TweetService {
     }
 
     public List<Tweet> getTweetsByUserName(String username){
-        return Tweetrepository.findByUsername(username);
+        return Tweetrepository.findByUsernameOrderByIdDesc(username);
     }
 }
